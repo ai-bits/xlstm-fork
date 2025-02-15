@@ -1,9 +1,9 @@
-#PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True #??
+#export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True #??
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # Specify the local directory where the model files are stored
-model_directory = "/home/gy/dl/LinuxSetup/xLSTM-7b"
+model_directory = "/home/gy/dl/xLSTM-7b" #"NX-AI/xLSTM-7b" #HF Hub path
 
 # Set the device to cuda
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
