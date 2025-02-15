@@ -1,5 +1,6 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer, AutoConfig
 import torch
+import time
 
 # Specify the local directory where the model files are stored
 model_directory = "/home/gy/dl/xLSTM-7b" #"NX-AI/xLSTM-7b" #HF Hub path
@@ -20,11 +21,18 @@ tokenizer = AutoTokenizer.from_pretrained(model_directory)
 from pprint import pprint
 pprint(xlstm.backbone.blocks[0].mlstm_layer.config)
 
-# Tokenize the input and move it to the same device
-tokens = tokenizer("Hello xLSTM, how are you doing?", return_tensors='pt')['input_ids'].to(device)
+# Measure time for tokenization
+start_time = time.time()
+tokens = tokenizer("tell the difference between lstm and transformers.", return_tensors='pt')['input_ids'].to(device)
+tokenization_time = time.time() - start_time
+print(f"Tokenization time: {tokenization_time:.2f} seconds")
 
-# Generate output
-out = xlstm.generate(tokens, max_new_tokens=20)
+# Measure time for generation
+start_time = time.time()
+out = xlstm.generate(tokens, max_new_tokens=2000)
 
 # Decode and print the output
 print(tokenizer.decode(out[0]))
+
+generation_time = time.time() - start_time
+print(f"Generation time: {generation_time:.2f} seconds")
