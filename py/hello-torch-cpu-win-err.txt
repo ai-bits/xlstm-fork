@@ -1,0 +1,43 @@
+(xlstm) c:\dl\xlstm-fork>python py/hello-torch-cpu.py
+Traceback (most recent call last):
+  File "c:\dl\xlstm-fork\py\hello-torch-cpu.py", line 18, in <module>
+    xlstm = AutoModelForCausalLM.from_pretrained(model_directory, config=xlstm_config).to(device)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dl\anaconda3\envs\xlstm\Lib\site-packages\transformers\models\auto\auto_factory.py", line 564, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dl\anaconda3\envs\xlstm\Lib\site-packages\transformers\modeling_utils.py", line 4024, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dl\anaconda3\envs\xlstm\Lib\site-packages\transformers\models\xlstm\modeling_xlstm.py", line 324, in __init__
+    self.backbone = xLSTMModel(config)
+                    ^^^^^^^^^^^^^^^^^^
+  File "C:\dl\anaconda3\envs\xlstm\Lib\site-packages\transformers\models\xlstm\modeling_xlstm.py", line 212, in __init__
+    self.blocks = nn.ModuleList([mLSTMBlock(config.to_xlstm_block_config()) for _ in range(config.num_blocks)])
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dl\anaconda3\envs\xlstm\Lib\site-packages\transformers\models\xlstm\modeling_xlstm.py", line 212, in <listcomp>
+    self.blocks = nn.ModuleList([mLSTMBlock(config.to_xlstm_block_config()) for _ in range(config.num_blocks)])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dl\anaconda3\envs\xlstm\Lib\site-packages\xlstm\xlstm_large\model.py", line 466, in __init__
+    self.mlstm_layer = mLSTMLayer(
+                       ^^^^^^^^^^^
+  File "C:\dl\anaconda3\envs\xlstm\Lib\site-packages\xlstm\xlstm_large\model.py", line 363, in __init__
+    self.mlstm_backend = mLSTMBackend(config=self.config.mlstm_backend)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dl\anaconda3\envs\xlstm\Lib\site-packages\mlstm_kernels\torch\backend_module.py", line 99, in __init__
+    self.chunkwise_kernel_fn = get_mlstm_kernel(config.chunkwise_kernel)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dl\anaconda3\envs\xlstm\Lib\site-packages\mlstm_kernels\torch\__init__.py", line 48, in get_mlstm_kernel
+    module_backend_registry = _create_module_sequence_backend_registry()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dl\anaconda3\envs\xlstm\Lib\site-packages\mlstm_kernels\torch\__init__.py", line 8, in _create_module_sequence_backend_registry
+    from .chunkwise import registry as mlstm_chunkwise_registry
+  File "C:\dl\anaconda3\envs\xlstm\Lib\site-packages\mlstm_kernels\torch\chunkwise\__init__.py", line 4, in <module>
+    from .native import mlstm_chunkwise__native_autograd, mlstm_chunkwise__native_custbw
+  File "C:\dl\anaconda3\envs\xlstm\Lib\site-packages\mlstm_kernels\torch\chunkwise\native\__init__.py", line 4, in <module>
+    from .fwbw import mlstm_chunkwise__native_autograd, mlstm_chunkwise__native_custbw
+  File "C:\dl\anaconda3\envs\xlstm\Lib\site-packages\mlstm_kernels\torch\chunkwise\native\fwbw.py", line 28, in <module>
+    from ...utils import contiguous
+  File "C:\dl\anaconda3\envs\xlstm\Lib\site-packages\mlstm_kernels\torch\utils.py", line 8, in <module>
+    import triton.language as tl
+ModuleNotFoundError: No module named 'triton'

@@ -4,6 +4,7 @@ import time
 
 # Specify the local directory where the model files are stored
 model_directory = "/home/gy/dl/xLSTM-7b" #"NX-AI/xLSTM-7b" #HF Hub path
+#model_directory = "C:\\dl\\xLSTM-7b" #"NX-AI/xLSTM-7b" #HF Hub path
 
 # Set the device to cpu
 device = torch.device("cpu")
@@ -15,6 +16,8 @@ xlstm_config.sequence_kernel = "native_sequence__native"
 
 # Load the model and tokenizer on the CPU
 xlstm = AutoModelForCausalLM.from_pretrained(model_directory, config=xlstm_config).to(device)
+# above line throws "No module named 'triton'" on Windows although
+#   HF docs claim this fragment avoids Triton and is Torch only
 tokenizer = AutoTokenizer.from_pretrained(model_directory)
 
 # verify selected kernels
