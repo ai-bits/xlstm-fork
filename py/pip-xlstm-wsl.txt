@@ -1,0 +1,362 @@
+xlstm) gy@viech:~$ pip install xlstm
+Collecting xlstm
+  Downloading xlstm-2.0.2-py3-none-any.whl.metadata (20 kB)
+Collecting torch (from xlstm)
+  Downloading torch-2.6.0-cp311-cp311-manylinux1_x86_64.whl.metadata (28 kB)
+Collecting einops (from xlstm)
+  Downloading einops-0.8.1-py3-none-any.whl.metadata (13 kB)
+Collecting numpy (from xlstm)
+  Downloading numpy-2.2.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
+Collecting omegaconf (from xlstm)
+  Downloading omegaconf-2.3.0-py3-none-any.whl.metadata (3.9 kB)
+Collecting opt_einsum (from xlstm)
+  Downloading opt_einsum-3.4.0-py3-none-any.whl.metadata (6.3 kB)
+Collecting transformers (from xlstm)
+  Downloading transformers-4.48.3-py3-none-any.whl.metadata (44 kB)
+Collecting reportlab (from xlstm)
+  Downloading reportlab-4.3.1-py3-none-any.whl.metadata (1.7 kB)
+Collecting joypy (from xlstm)
+  Downloading joypy-0.2.6-py2.py3-none-any.whl.metadata (812 bytes)
+Collecting ipykernel (from xlstm)
+  Downloading ipykernel-6.29.5-py3-none-any.whl.metadata (6.3 kB)
+Collecting dacite (from xlstm)
+  Downloading dacite-1.9.2-py3-none-any.whl.metadata (17 kB)
+Collecting ftfy (from xlstm)
+  Downloading ftfy-6.3.1-py3-none-any.whl.metadata (7.3 kB)
+Collecting ninja (from xlstm)
+  Downloading ninja-1.11.1.3-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (5.3 kB)
+Collecting huggingface-hub (from xlstm)
+  Downloading huggingface_hub-0.28.1-py3-none-any.whl.metadata (13 kB)
+Collecting rich (from xlstm)
+  Using cached rich-13.9.4-py3-none-any.whl.metadata (18 kB)
+Collecting tokenizers (from xlstm)
+  Downloading tokenizers-0.21.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.7 kB)
+Collecting tqdm (from xlstm)
+  Using cached tqdm-4.67.1-py3-none-any.whl.metadata (57 kB)
+Collecting seaborn (from xlstm)
+  Downloading seaborn-0.13.2-py3-none-any.whl.metadata (5.4 kB)
+Collecting mlstm_kernels (from xlstm)
+  Downloading mlstm_kernels-1.0.3-py3-none-any.whl.metadata (17 kB)
+Collecting wcwidth (from ftfy->xlstm)
+  Using cached wcwidth-0.2.13-py2.py3-none-any.whl.metadata (14 kB)
+Collecting filelock (from huggingface-hub->xlstm)
+  Downloading filelock-3.17.0-py3-none-any.whl.metadata (2.9 kB)
+Collecting fsspec>=2023.5.0 (from huggingface-hub->xlstm)
+  Downloading fsspec-2025.2.0-py3-none-any.whl.metadata (11 kB)
+Collecting packaging>=20.9 (from huggingface-hub->xlstm)
+  Using cached packaging-24.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting pyyaml>=5.1 (from huggingface-hub->xlstm)
+  Using cached PyYAML-6.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+Collecting requests (from huggingface-hub->xlstm)
+  Using cached requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)
+Collecting typing-extensions>=3.7.4.3 (from huggingface-hub->xlstm)
+  Using cached typing_extensions-4.12.2-py3-none-any.whl.metadata (3.0 kB)
+Collecting comm>=0.1.1 (from ipykernel->xlstm)
+  Downloading comm-0.2.2-py3-none-any.whl.metadata (3.7 kB)
+Collecting debugpy>=1.6.5 (from ipykernel->xlstm)
+  Downloading debugpy-1.8.12-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.3 kB)
+Collecting ipython>=7.23.1 (from ipykernel->xlstm)
+  Downloading ipython-8.32.0-py3-none-any.whl.metadata (5.0 kB)
+Collecting jupyter-client>=6.1.12 (from ipykernel->xlstm)
+  Downloading jupyter_client-8.6.3-py3-none-any.whl.metadata (8.3 kB)
+Collecting jupyter-core!=5.0.*,>=4.12 (from ipykernel->xlstm)
+  Downloading jupyter_core-5.7.2-py3-none-any.whl.metadata (3.4 kB)
+Collecting matplotlib-inline>=0.1 (from ipykernel->xlstm)
+  Downloading matplotlib_inline-0.1.7-py3-none-any.whl.metadata (3.9 kB)
+Collecting nest-asyncio (from ipykernel->xlstm)
+  Using cached nest_asyncio-1.6.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting psutil (from ipykernel->xlstm)
+  Downloading psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (22 kB)
+Collecting pyzmq>=24 (from ipykernel->xlstm)
+  Downloading pyzmq-26.2.1-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (6.2 kB)
+Collecting tornado>=6.1 (from ipykernel->xlstm)
+  Downloading tornado-6.4.2-cp38-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.5 kB)
+Collecting traitlets>=5.4.0 (from ipykernel->xlstm)
+  Downloading traitlets-5.14.3-py3-none-any.whl.metadata (10 kB)
+Collecting scipy>=0.11.0 (from joypy->xlstm)
+  Downloading scipy-1.15.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+Collecting pandas>=0.20.0 (from joypy->xlstm)
+  Downloading pandas-2.2.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (89 kB)
+Collecting matplotlib (from joypy->xlstm)
+  Downloading matplotlib-3.10.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+Collecting antlr4-python3-runtime==4.9.* (from omegaconf->xlstm)
+  Downloading antlr4-python3-runtime-4.9.3.tar.gz (117 kB)
+  Preparing metadata (setup.py) ... done
+Collecting pillow>=9.0.0 (from reportlab->xlstm)
+  Downloading pillow-11.1.0-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting chardet (from reportlab->xlstm)
+  Using cached chardet-5.2.0-py3-none-any.whl.metadata (3.4 kB)
+Collecting markdown-it-py>=2.2.0 (from rich->xlstm)
+  Using cached markdown_it_py-3.0.0-py3-none-any.whl.metadata (6.9 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich->xlstm)
+  Downloading pygments-2.19.1-py3-none-any.whl.metadata (2.5 kB)
+Collecting networkx (from torch->xlstm)
+  Downloading networkx-3.4.2-py3-none-any.whl.metadata (6.3 kB)
+Collecting jinja2 (from torch->xlstm)
+  Downloading jinja2-3.1.5-py3-none-any.whl.metadata (2.6 kB)
+Collecting nvidia-cuda-nvrtc-cu12==12.4.127 (from torch->xlstm)
+  Downloading nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-cuda-runtime-cu12==12.4.127 (from torch->xlstm)
+  Downloading nvidia_cuda_runtime_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-cuda-cupti-cu12==12.4.127 (from torch->xlstm)
+  Downloading nvidia_cuda_cupti_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-cudnn-cu12==9.1.0.70 (from torch->xlstm)
+  Downloading nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-cublas-cu12==12.4.5.8 (from torch->xlstm)
+  Downloading nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-cufft-cu12==11.2.1.3 (from torch->xlstm)
+  Downloading nvidia_cufft_cu12-11.2.1.3-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-curand-cu12==10.3.5.147 (from torch->xlstm)
+  Downloading nvidia_curand_cu12-10.3.5.147-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-cusolver-cu12==11.6.1.9 (from torch->xlstm)
+  Downloading nvidia_cusolver_cu12-11.6.1.9-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-cusparse-cu12==12.3.1.170 (from torch->xlstm)
+  Downloading nvidia_cusparse_cu12-12.3.1.170-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-cusparselt-cu12==0.6.2 (from torch->xlstm)
+  Downloading nvidia_cusparselt_cu12-0.6.2-py3-none-manylinux2014_x86_64.whl.metadata (6.8 kB)
+Collecting nvidia-nccl-cu12==2.21.5 (from torch->xlstm)
+  Downloading nvidia_nccl_cu12-2.21.5-py3-none-manylinux2014_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-nvtx-cu12==12.4.127 (from torch->xlstm)
+  Downloading nvidia_nvtx_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-nvjitlink-cu12==12.4.127 (from torch->xlstm)
+  Downloading nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting triton==3.2.0 (from torch->xlstm)
+  Downloading triton-3.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.4 kB)
+Collecting sympy==1.13.1 (from torch->xlstm)
+  Downloading sympy-1.13.1-py3-none-any.whl.metadata (12 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy==1.13.1->torch->xlstm)
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting regex!=2019.12.17 (from transformers->xlstm)
+  Downloading regex-2024.11.6-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (40 kB)
+Collecting safetensors>=0.4.1 (from transformers->xlstm)
+  Downloading safetensors-0.5.2-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.8 kB)
+Collecting decorator (from ipython>=7.23.1->ipykernel->xlstm)
+  Using cached decorator-5.1.1-py3-none-any.whl.metadata (4.0 kB)
+Collecting jedi>=0.16 (from ipython>=7.23.1->ipykernel->xlstm)
+  Downloading jedi-0.19.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting pexpect>4.3 (from ipython>=7.23.1->ipykernel->xlstm)
+  Downloading pexpect-4.9.0-py2.py3-none-any.whl.metadata (2.5 kB)
+Collecting prompt_toolkit<3.1.0,>=3.0.41 (from ipython>=7.23.1->ipykernel->xlstm)
+  Downloading prompt_toolkit-3.0.50-py3-none-any.whl.metadata (6.6 kB)
+Collecting stack_data (from ipython>=7.23.1->ipykernel->xlstm)
+  Downloading stack_data-0.6.3-py3-none-any.whl.metadata (18 kB)
+Collecting python-dateutil>=2.8.2 (from jupyter-client>=6.1.12->ipykernel->xlstm)
+  Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting platformdirs>=2.5 (from jupyter-core!=5.0.*,>=4.12->ipykernel->xlstm)
+  Using cached platformdirs-4.3.6-py3-none-any.whl.metadata (11 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich->xlstm)
+  Using cached mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Collecting contourpy>=1.0.1 (from matplotlib->joypy->xlstm)
+  Downloading contourpy-1.3.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.4 kB)
+Collecting cycler>=0.10 (from matplotlib->joypy->xlstm)
+  Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.22.0 (from matplotlib->joypy->xlstm)
+  Downloading fonttools-4.56.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (101 kB)
+Collecting kiwisolver>=1.3.1 (from matplotlib->joypy->xlstm)
+  Downloading kiwisolver-1.4.8-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.2 kB)
+Collecting pyparsing>=2.3.1 (from matplotlib->joypy->xlstm)
+  Downloading pyparsing-3.2.1-py3-none-any.whl.metadata (5.0 kB)
+Collecting pytz>=2020.1 (from pandas>=0.20.0->joypy->xlstm)
+  Downloading pytz-2025.1-py2.py3-none-any.whl.metadata (22 kB)
+Collecting tzdata>=2022.7 (from pandas>=0.20.0->joypy->xlstm)
+  Downloading tzdata-2025.1-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->torch->xlstm)
+  Downloading MarkupSafe-3.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+Collecting charset-normalizer<4,>=2 (from requests->huggingface-hub->xlstm)
+  Downloading charset_normalizer-3.4.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (35 kB)
+Collecting idna<4,>=2.5 (from requests->huggingface-hub->xlstm)
+  Downloading idna-3.10-py3-none-any.whl.metadata (10 kB)
+Collecting urllib3<3,>=1.21.1 (from requests->huggingface-hub->xlstm)
+  Downloading urllib3-2.3.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting certifi>=2017.4.17 (from requests->huggingface-hub->xlstm)
+  Downloading certifi-2025.1.31-py3-none-any.whl.metadata (2.5 kB)
+Collecting parso<0.9.0,>=0.8.4 (from jedi>=0.16->ipython>=7.23.1->ipykernel->xlstm)
+  Downloading parso-0.8.4-py2.py3-none-any.whl.metadata (7.7 kB)
+Collecting ptyprocess>=0.5 (from pexpect>4.3->ipython>=7.23.1->ipykernel->xlstm)
+  Downloading ptyprocess-0.7.0-py2.py3-none-any.whl.metadata (1.3 kB)
+Collecting six>=1.5 (from python-dateutil>=2.8.2->jupyter-client>=6.1.12->ipykernel->xlstm)
+  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting executing>=1.2.0 (from stack_data->ipython>=7.23.1->ipykernel->xlstm)
+  Downloading executing-2.2.0-py2.py3-none-any.whl.metadata (8.9 kB)
+Collecting asttokens>=2.1.0 (from stack_data->ipython>=7.23.1->ipykernel->xlstm)
+  Downloading asttokens-3.0.0-py3-none-any.whl.metadata (4.7 kB)
+Collecting pure-eval (from stack_data->ipython>=7.23.1->ipykernel->xlstm)
+  Downloading pure_eval-0.2.3-py3-none-any.whl.metadata (6.3 kB)
+Downloading xlstm-2.0.2-py3-none-any.whl (89 kB)
+Downloading dacite-1.9.2-py3-none-any.whl (16 kB)
+Downloading einops-0.8.1-py3-none-any.whl (64 kB)
+Downloading ftfy-6.3.1-py3-none-any.whl (44 kB)
+Downloading huggingface_hub-0.28.1-py3-none-any.whl (464 kB)
+Using cached tqdm-4.67.1-py3-none-any.whl (78 kB)
+Downloading ipykernel-6.29.5-py3-none-any.whl (117 kB)
+Downloading joypy-0.2.6-py2.py3-none-any.whl (8.6 kB)
+Downloading numpy-2.2.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.4/16.4 MB 13.0 MB/s eta 0:00:00
+Downloading mlstm_kernels-1.0.3-py3-none-any.whl (209 kB)
+Downloading ninja-1.11.1.3-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (422 kB)
+Downloading omegaconf-2.3.0-py3-none-any.whl (79 kB)
+Downloading opt_einsum-3.4.0-py3-none-any.whl (71 kB)
+Downloading reportlab-4.3.1-py3-none-any.whl (1.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 17.2 MB/s eta 0:00:00
+Using cached rich-13.9.4-py3-none-any.whl (242 kB)
+Downloading seaborn-0.13.2-py3-none-any.whl (294 kB)
+Downloading tokenizers-0.21.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 16.8 MB/s eta 0:00:00
+Downloading torch-2.6.0-cp311-cp311-manylinux1_x86_64.whl (766.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 766.7/766.7 MB 17.7 MB/s eta 0:00:00
+Downloading nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl (363.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 363.4/363.4 MB 18.6 MB/s eta 0:00:00
+Downloading nvidia_cuda_cupti_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (13.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.8/13.8 MB 19.9 MB/s eta 0:00:00
+Downloading nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (24.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 24.6/24.6 MB 21.3 MB/s eta 0:00:00
+Downloading nvidia_cuda_runtime_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (883 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 883.7/883.7 kB 12.9 MB/s eta 0:00:00
+Downloading nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl (664.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 664.8/664.8 MB 17.0 MB/s eta 0:00:00
+Downloading nvidia_cufft_cu12-11.2.1.3-py3-none-manylinux2014_x86_64.whl (211.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 211.5/211.5 MB 18.1 MB/s eta 0:00:00
+Downloading nvidia_curand_cu12-10.3.5.147-py3-none-manylinux2014_x86_64.whl (56.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.3/56.3 MB 17.6 MB/s eta 0:00:00
+Downloading nvidia_cusolver_cu12-11.6.1.9-py3-none-manylinux2014_x86_64.whl (127.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 127.9/127.9 MB 17.5 MB/s eta 0:00:00
+Downloading nvidia_cusparse_cu12-12.3.1.170-py3-none-manylinux2014_x86_64.whl (207.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 207.5/207.5 MB 17.4 MB/s eta 0:00:00
+Downloading nvidia_cusparselt_cu12-0.6.2-py3-none-manylinux2014_x86_64.whl (150.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 150.1/150.1 MB 18.0 MB/s eta 0:00:00
+Downloading nvidia_nccl_cu12-2.21.5-py3-none-manylinux2014_x86_64.whl (188.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 188.7/188.7 MB 18.0 MB/s eta 0:00:00
+Downloading nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (21.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 21.1/21.1 MB 16.0 MB/s eta 0:00:00
+Downloading nvidia_nvtx_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (99 kB)
+Downloading sympy-1.13.1-py3-none-any.whl (6.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.2/6.2 MB 17.0 MB/s eta 0:00:00
+Downloading triton-3.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (253.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 253.2/253.2 MB 18.4 MB/s eta 0:00:00
+Downloading transformers-4.48.3-py3-none-any.whl (9.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.7/9.7 MB 13.6 MB/s eta 0:00:00
+Downloading comm-0.2.2-py3-none-any.whl (7.2 kB)
+Downloading debugpy-1.8.12-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 9.4 MB/s eta 0:00:00
+Downloading fsspec-2025.2.0-py3-none-any.whl (184 kB)
+Downloading ipython-8.32.0-py3-none-any.whl (825 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 825.5/825.5 kB 13.2 MB/s eta 0:00:00
+Downloading jupyter_client-8.6.3-py3-none-any.whl (106 kB)
+Downloading jupyter_core-5.7.2-py3-none-any.whl (28 kB)
+Using cached markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+Downloading matplotlib-3.10.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.6/8.6 MB 16.5 MB/s eta 0:00:00
+Downloading matplotlib_inline-0.1.7-py3-none-any.whl (9.9 kB)
+Using cached packaging-24.2-py3-none-any.whl (65 kB)
+Downloading pandas-2.2.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 18.4 MB/s eta 0:00:00
+Downloading pillow-11.1.0-cp311-cp311-manylinux_2_28_x86_64.whl (4.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 15.1 MB/s eta 0:00:00
+Downloading pygments-2.19.1-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 14.8 MB/s eta 0:00:00
+Using cached PyYAML-6.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (762 kB)
+Downloading pyzmq-26.2.1-cp311-cp311-manylinux_2_28_x86_64.whl (874 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 874.5/874.5 kB 14.3 MB/s eta 0:00:00
+Downloading regex-2024.11.6-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (792 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 792.7/792.7 kB 14.3 MB/s eta 0:00:00
+Downloading safetensors-0.5.2-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (461 kB)
+Downloading scipy-1.15.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (40.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.6/40.6 MB 18.0 MB/s eta 0:00:00
+Downloading tornado-6.4.2-cp38-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (437 kB)
+Downloading traitlets-5.14.3-py3-none-any.whl (85 kB)
+Using cached typing_extensions-4.12.2-py3-none-any.whl (37 kB)
+Using cached chardet-5.2.0-py3-none-any.whl (199 kB)
+Downloading filelock-3.17.0-py3-none-any.whl (16 kB)
+Downloading jinja2-3.1.5-py3-none-any.whl (134 kB)
+Using cached nest_asyncio-1.6.0-py3-none-any.whl (5.2 kB)
+Downloading networkx-3.4.2-py3-none-any.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 17.8 MB/s eta 0:00:00
+Downloading psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (277 kB)
+Using cached requests-2.32.3-py3-none-any.whl (64 kB)
+Using cached wcwidth-0.2.13-py2.py3-none-any.whl (34 kB)
+Downloading certifi-2025.1.31-py3-none-any.whl (166 kB)
+Downloading charset_normalizer-3.4.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (143 kB)
+Downloading contourpy-1.3.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (326 kB)
+Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading fonttools-4.56.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 13.3 MB/s eta 0:00:00
+Downloading idna-3.10-py3-none-any.whl (70 kB)
+Downloading jedi-0.19.2-py2.py3-none-any.whl (1.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 16.4 MB/s eta 0:00:00
+Downloading kiwisolver-1.4.8-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 16.0 MB/s eta 0:00:00
+Downloading MarkupSafe-3.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (23 kB)
+Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 13.3 MB/s eta 0:00:00
+Downloading pexpect-4.9.0-py2.py3-none-any.whl (63 kB)
+Using cached platformdirs-4.3.6-py3-none-any.whl (18 kB)
+Downloading prompt_toolkit-3.0.50-py3-none-any.whl (387 kB)
+Downloading pyparsing-3.2.1-py3-none-any.whl (107 kB)
+Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading pytz-2025.1-py2.py3-none-any.whl (507 kB)
+Downloading tzdata-2025.1-py2.py3-none-any.whl (346 kB)
+Downloading urllib3-2.3.0-py3-none-any.whl (128 kB)
+Using cached decorator-5.1.1-py3-none-any.whl (9.1 kB)
+Downloading stack_data-0.6.3-py3-none-any.whl (24 kB)
+Downloading asttokens-3.0.0-py3-none-any.whl (26 kB)
+Downloading executing-2.2.0-py2.py3-none-any.whl (26 kB)
+Downloading parso-0.8.4-py2.py3-none-any.whl (103 kB)
+Downloading ptyprocess-0.7.0-py2.py3-none-any.whl (13 kB)
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading pure_eval-0.2.3-py3-none-any.whl (11 kB)
+Building wheels for collected packages: antlr4-python3-runtime
+  Building wheel for antlr4-python3-runtime (setup.py) ... done
+  Created wheel for antlr4-python3-runtime: filename=antlr4_python3_runtime-4.9.3-py3-none-any.whl size=144591 sha256=efa5b6f345a7374a9e06e6d553b25c4be4a4beedde50753b64f89f72ffb8a903
+  Stored in directory: /home/gy/.cache/pip/wheels/1a/97/32/461f837398029ad76911109f07047fde1d7b661a147c7c56d1
+Successfully built antlr4-python3-runtime
+Installing collected packages: wcwidth, triton, pytz, pure-eval, ptyprocess, nvidia-cusparselt-cu12, mpmath, antlr4-python3-runtime, urllib3, tzdata, typing-extensions, traitlets, tqdm, tornado, sympy, six, safetensors, regex, pyzmq, pyyaml, pyparsing, pygments, psutil, prompt_toolkit, platformdirs, pillow, pexpect, parso, packaging, opt_einsum, nvidia-nvtx-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufft-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, numpy, ninja, networkx, nest-asyncio, mdurl, MarkupSafe, kiwisolver, idna, ftfy, fsspec, fonttools, filelock, executing, einops, decorator, debugpy, dacite, cycler, charset-normalizer, chardet, certifi, asttokens, stack_data, scipy, requests, reportlab, python-dateutil, omegaconf, nvidia-cusparse-cu12, nvidia-cudnn-cu12, matplotlib-inline, markdown-it-py, jupyter-core, jinja2, jedi, contourpy, comm, rich, pandas, nvidia-cusolver-cu12, matplotlib, jupyter-client, ipython, huggingface-hub, torch, tokenizers, seaborn, joypy, ipykernel, transformers, mlstm_kernels, xlstm
+Successfully installed MarkupSafe-3.0.2 antlr4-python3-runtime-4.9.3 asttokens-3.0.0 certifi-2025.1.31 chardet-5.2.0 charset-normalizer-3.4.1 comm-0.2.2 contourpy-1.3.1 cycler-0.12.1 dacite-1.9.2 debugpy-1.8.12 decorator-5.1.1 einops-0.8.1 executing-2.2.0 filelock-3.17.0 fonttools-4.56.0 fsspec-2025.2.0 ftfy-6.3.1 huggingface-hub-0.28.1 idna-3.10 ipykernel-6.29.5 ipython-8.32.0 jedi-0.19.2 jinja2-3.1.5 joypy-0.2.6 jupyter-client-8.6.3 jupyter-core-5.7.2 kiwisolver-1.4.8 markdown-it-py-3.0.0 matplotlib-3.10.0 matplotlib-inline-0.1.7 mdurl-0.1.2 mlstm_kernels-1.0.3 mpmath-1.3.0 nest-asyncio-1.6.0 networkx-3.4.2 ninja-1.11.1.3 numpy-2.2.3 nvidia-cublas-cu12-12.4.5.8 nvidia-cuda-cupti-cu12-12.4.127 nvidia-cuda-nvrtc-cu12-12.4.127 nvidia-cuda-runtime-cu12-12.4.127 nvidia-cudnn-cu12-9.1.0.70 nvidia-cufft-cu12-11.2.1.3 nvidia-curand-cu12-10.3.5.147 nvidia-cusolver-cu12-11.6.1.9 nvidia-cusparse-cu12-12.3.1.170 nvidia-cusparselt-cu12-0.6.2 nvidia-nccl-cu12-2.21.5 nvidia-nvjitlink-cu12-12.4.127 nvidia-nvtx-cu12-12.4.127 omegaconf-2.3.0 opt_einsum-3.4.0 packaging-24.2 pandas-2.2.3 parso-0.8.4 pexpect-4.9.0 pillow-11.1.0 platformdirs-4.3.6 prompt_toolkit-3.0.50 psutil-7.0.0 ptyprocess-0.7.0 pure-eval-0.2.3 pygments-2.19.1 pyparsing-3.2.1 python-dateutil-2.9.0.post0 pytz-2025.1 pyyaml-6.0.2 pyzmq-26.2.1 regex-2024.11.6 reportlab-4.3.1 requests-2.32.3 rich-13.9.4 safetensors-0.5.2 scipy-1.15.1 seaborn-0.13.2 six-1.17.0 stack_data-0.6.3 sympy-1.13.1 tokenizers-0.21.0 torch-2.6.0 tornado-6.4.2 tqdm-4.67.1 traitlets-5.14.3 transformers-4.48.3 triton-3.2.0 typing-extensions-4.12.2 tzdata-2025.1 urllib3-2.3.0 wcwidth-0.2.13 xlstm-2.0.2
+
+pip install mlstm_kernels #ALL SATISFIED
+
+(xlstm) gy@viech:~$ pip install git+https://git@github.com/NX-AI/transformers.git@integrate_xlstm#egg=transformers
+Collecting transformers
+  Cloning https://****@github.com/NX-AI/transformers.git (to revision integrate_xlstm) to /tmp/pip-install-nhps3hwc/transformers_b61f349fa28d499b83b638b6711fdea5
+  Running command git clone --filter=blob:none --quiet 'https://****@github.com/NX-AI/transformers.git' /tmp/pip-install-nhps3hwc/transformers_b61f349fa28d499b83b638b6711fdea5
+  Running command git checkout -b integrate_xlstm --track origin/integrate_xlstm
+  Switched to a new branch 'integrate_xlstm'
+  Branch 'integrate_xlstm' set up to track remote branch 'integrate_xlstm' from 'origin'.
+  Resolved https://****@github.com/NX-AI/transformers.git to commit f99443e2c8bc2e929218c68d37ae96b4e0a11bd7
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Requirement already satisfied: filelock in /opt/miniconda/envs/xlstm/lib/python3.11/site-packages (from transformers) (3.17.0)
+Requirement already satisfied: huggingface-hub<1.0,>=0.24.0 in /opt/miniconda/envs/xlstm/lib/python3.11/site-packages (from transformers) (0.28.1)
+Requirement already satisfied: numpy>=1.17 in /opt/miniconda/envs/xlstm/lib/python3.11/site-packages (from transformers) (2.2.3)
+Requirement already satisfied: packaging>=20.0 in /opt/miniconda/envs/xlstm/lib/python3.11/site-packages (from transformers) (24.2)
+Requirement already satisfied: pyyaml>=5.1 in /opt/miniconda/envs/xlstm/lib/python3.11/site-packages (from transformers) (6.0.2)
+Requirement already satisfied: regex!=2019.12.17 in /opt/miniconda/envs/xlstm/lib/python3.11/site-packages (from transformers) (2024.11.6)
+Requirement already satisfied: requests in /opt/miniconda/envs/xlstm/lib/python3.11/site-packages (from transformers) (2.32.3)
+Collecting tokenizers<0.21,>=0.20 (from transformers)
+  Downloading tokenizers-0.20.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.7 kB)
+Requirement already satisfied: safetensors>=0.4.1 in /opt/miniconda/envs/xlstm/lib/python3.11/site-packages (from transformers) (0.5.2)
+Requirement already satisfied: tqdm>=4.27 in /opt/miniconda/envs/xlstm/lib/python3.11/site-packages (from transformers) (4.67.1)
+Requirement already satisfied: fsspec>=2023.5.0 in /opt/miniconda/envs/xlstm/lib/python3.11/site-packages (from huggingface-hub<1.0,>=0.24.0->transformers) (2025.2.0)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in /opt/miniconda/envs/xlstm/lib/python3.11/site-packages (from huggingface-hub<1.0,>=0.24.0->transformers) (4.12.2)
+Requirement already satisfied: charset-normalizer<4,>=2 in /opt/miniconda/envs/xlstm/lib/python3.11/site-packages (from requests->transformers) (3.4.1)
+Requirement already satisfied: idna<4,>=2.5 in /opt/miniconda/envs/xlstm/lib/python3.11/site-packages (from requests->transformers) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /opt/miniconda/envs/xlstm/lib/python3.11/site-packages (from requests->transformers) (2.3.0)
+Requirement already satisfied: certifi>=2017.4.17 in /opt/miniconda/envs/xlstm/lib/python3.11/site-packages (from requests->transformers) (2025.1.31)
+Downloading tokenizers-0.20.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 12.1 MB/s eta 0:00:00
+Building wheels for collected packages: transformers
+  Building wheel for transformers (pyproject.toml) ... done
+  Created wheel for transformers: filename=transformers-4.47.0.dev0-py3-none-any.whl size=10088256 sha256=d18c85ed68a23b6b7f4bab7ba7c00eefbf9a77dfcf3ee43ab7e5247fbaf938af
+  Stored in directory: /tmp/pip-ephem-wheel-cache-a6f4c060/wheels/cb/07/a2/79b0f6f30adf1863ac69c4c61f717ee40f3850fdbe665e78e0
+Successfully built transformers
+Installing collected packages: tokenizers, transformers
+  Attempting uninstall: tokenizers
+    Found existing installation: tokenizers 0.21.0
+    Uninstalling tokenizers-0.21.0:
+      Successfully uninstalled tokenizers-0.21.0
+  Attempting uninstall: transformers
+    Found existing installation: transformers 4.48.3
+    Uninstalling transformers-4.48.3:
+      Successfully uninstalled transformers-4.48.3
+Successfully installed tokenizers-0.20.3 transformers-4.47.0.dev0
