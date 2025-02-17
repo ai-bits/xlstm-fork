@@ -501,10 +501,10 @@ class mLSTMBlock(nn.Module):
     ) -> tuple[torch.Tensor, mLSTMStateType]:
         x_mlstm = self.norm_mlstm(x)
         x_mlstm, state = self.mlstm_layer(x_mlstm, state)
-        x = x + x_mlstm
+        x = x + x_mlstm.to(x.device) #x = x + x_mlstm #gue22 20250217
 
         x_ffn = self.norm_ffn(x)
         x_ffn = self.ffn(x_ffn)
-        x = x + x_ffn
+        x = x + x_ffn.to(x.device) #x = x + x_ffn #gue22 20250217
 
         return x, state
