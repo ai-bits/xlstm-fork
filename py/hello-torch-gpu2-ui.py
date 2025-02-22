@@ -39,23 +39,31 @@ except Exception as e:
     print(f"Error loading tokenizer: {e}")
     exit(1)
 
-# Tokenize input with exception handling
-def generate_text(prompt, max_tokens=1000):
+# Stream output token by token
+@torch.no_grad()
+def generate_text_stream(prompt, max_tokens=1000):
     try:
         tokens = tokenizer(prompt, return_tensors='pt')['input_ids']
         first_device = next(xlstm.parameters()).device
         tokens = tokens.to(first_device)
         
-        start_time = time.time()
-        output_tokens = xlstm.generate(tokens, max_new_tokens=max_tokens)
-        
-        generated_text = tokenizer.decode(output_tokens[0], skip_special_tokens=True)
-        generation_time = time.time() - start_time
-        print(f"Generation time: {generation_time:.2f} seconds")
-        return generated_text
+        generated_tokens = []
+        for _ in range(max_tokens):
+            output = xlstm.generate(tokens, max_new_tokens=1, do_sample=False)
+            next_token = output[0, -1].item()
+            
+            if next_token == tokenizer.eos_token_id:
+                break
+            
+            generated_tokens.append(next_token)
+            new_word = tokenizer.decode([next_token], skip_special_tokens=True)
+            yield new_word  # Yield only the new token
+            
+            tokens = torch.cat((tokens, torch.tensor([[next_token]], device=first_device)), dim=1)
+            #time.sleep(0.05)  # commented out as it's slow enough on my 2 x 20GB RTX 4000
     except Exception as e:
         print(f"Error during text generation: {e}")
-        return "Error generating text."
+        yield "Error generating text."
 
 # Interactive loop for user input
 if __name__ == "__main__":
@@ -68,7 +76,7 @@ if __name__ == "__main__":
         max_tokens = input("Max tokens (default 1000): ")
         max_tokens = int(max_tokens) if max_tokens.isdigit() else 1000
         
-        print("AI:", end=" ")
-        for token in generate_text(user_input, max_tokens).split():
-            print(token, end=" ", flush=True)
+        print("AI:", end="", flush=True)
+        for word in generate_text_stream(user_input, max_tokens):
+            print(word, end="", flush=True)
         print("\n")
