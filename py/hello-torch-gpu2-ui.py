@@ -1,3 +1,9 @@
+# 20250222 2320 WORKING!
+# Was tiring with OpenAI's 4o trial and error
+# to get streaming right and debug the CUDA out of memory issue,
+# but I have no idea how many MONTHS it would have taken me on my own and
+# if it had worked at all, if I had had to rely on pre-AI procedures.
+
 from transformers import AutoModelForCausalLM, AutoTokenizer, AutoConfig
 import torch
 import time
@@ -49,28 +55,36 @@ def generate_text_stream(prompt, max_tokens=1000):
         tokens = tokens.to(first_device)
         
         past_key_values = None  # Keep track of past states for efficiency
-        max_length = 512  # Limit context length to prevent memory issues
         
-        for _ in range(max_tokens):
-            output = xlstm.generate(tokens[:, -max_length:], max_new_tokens=1, do_sample=False, use_cache=True)
-            next_token = output[:, -1].item()
+        new_tokens = []  # Buffer for batched token streaming
+        for i in range(max_tokens):
+            if not new_tokens:  # Generate in batches of 10 to reduce overhead
+                output = xlstm.generate(
+                    tokens[:, -512:],  # Keep only the last 512 tokens
+                    max_new_tokens=10,  # Generate 10 tokens at a time
+                    do_sample=False, 
+                    use_cache=True  # Enable cache for efficiency
+                )
+                new_tokens = output[0, -10:].tolist()  # Store next 10 tokens
+            
+            next_token = new_tokens.pop(0)  # Stream tokens from buffer
             
             if next_token == tokenizer.eos_token_id:
                 break
             
-            new_word = tokenizer.decode([next_token], skip_special_tokens=True).strip()
+            new_word = tokenizer.decode([next_token], skip_special_tokens=True)
             if new_word:
-                yield new_word
+                yield (' ' + new_word if len(tokenizer.tokenize(new_word)) > 1 else new_word)  # Ensure spacing between words
             
             tokens = torch.cat((tokens, torch.tensor([[next_token]], device=first_device)), dim=1)
+            tokens = tokens[:, -512:]  # Limit context length to prevent memory issues
             
-            # Free up GPU memory
-            if tokens.shape[1] > max_length:
-                tokens = tokens[:, -max_length:]
-                gc.collect()
+            # Free GPU memory every 50 tokens to prevent memory growth
+            if i % 50 == 0:
                 torch.cuda.empty_cache()
+                torch.cuda.ipc_collect()
+                gc.collect()
             
-            time.sleep(0.05)  # Small delay for streaming effect
     except torch.cuda.CudaError as e:
         print(f"CUDA error: {e}")
         torch.cuda.empty_cache()
@@ -90,7 +104,7 @@ if __name__ == "__main__":
         max_tokens = input("Max tokens (default 1000): ")
         max_tokens = int(max_tokens) if max_tokens.isdigit() else 1000
         
-        print("AI:", end=" ", flush=True)
+        print("AI:", end="", flush=True)
         for word in generate_text_stream(user_input, max_tokens):
-            print(word, end=" ", flush=True)
+            print(word, end="", flush=True)
         print("\n")
