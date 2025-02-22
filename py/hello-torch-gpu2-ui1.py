@@ -1,4 +1,4 @@
-# 20250222 Was a bit tiring with OpenAI's 4o trail and error
+# 20250222 Was a bit tiring with OpenAI's 4o trial and error
 # to get streaming almost right (CUDA out of memory or so after an estimated 700 tokens),
 # but I have no idea how many MONTHS it would have taken me on my own.
 
