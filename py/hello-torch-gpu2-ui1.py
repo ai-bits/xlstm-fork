@@ -1,7 +1,10 @@
+# 20250222 Was a bit tiring with OpenAI's 4o trail and error
+# to get streaming almost right (CUDA out of memory or so after an estimated 700 tokens),
+# but I have no idea how many MONTHS it would have taken me on my own.
+
 from transformers import AutoModelForCausalLM, AutoTokenizer, AutoConfig
 import torch
 import time
-import gc
 
 model_directory = "/home/gy/dl/xLSTM-7b"  # Local model path
 
@@ -48,33 +51,20 @@ def generate_text_stream(prompt, max_tokens=1000):
         first_device = next(xlstm.parameters()).device
         tokens = tokens.to(first_device)
         
-        past_key_values = None  # Keep track of past states for efficiency
-        max_length = 512  # Limit context length to prevent memory issues
-        
+        generated_tokens = []
         for _ in range(max_tokens):
-            output = xlstm.generate(tokens[:, -max_length:], max_new_tokens=1, do_sample=False, use_cache=True)
-            next_token = output[:, -1].item()
+            output = xlstm.generate(tokens, max_new_tokens=1, do_sample=False)
+            next_token = output[0, -1].item()
             
             if next_token == tokenizer.eos_token_id:
                 break
             
-            new_word = tokenizer.decode([next_token], skip_special_tokens=True).strip()
-            if new_word:
-                yield new_word
+            generated_tokens.append(next_token)
+            new_word = tokenizer.decode([next_token], skip_special_tokens=True)
+            yield new_word  # Yield only the new token
             
             tokens = torch.cat((tokens, torch.tensor([[next_token]], device=first_device)), dim=1)
-            
-            # Free up GPU memory
-            if tokens.shape[1] > max_length:
-                tokens = tokens[:, -max_length:]
-                gc.collect()
-                torch.cuda.empty_cache()
-            
-            time.sleep(0.05)  # Small delay for streaming effect
-    except torch.cuda.CudaError as e:
-        print(f"CUDA error: {e}")
-        torch.cuda.empty_cache()
-        yield "[Error: CUDA out of memory]"
+            #time.sleep(0.05)  # commented out as it's slow enough on my 2 x 20GB RTX 4000
     except Exception as e:
         print(f"Error during text generation: {e}")
         yield "Error generating text."
@@ -90,7 +80,7 @@ if __name__ == "__main__":
         max_tokens = input("Max tokens (default 1000): ")
         max_tokens = int(max_tokens) if max_tokens.isdigit() else 1000
         
-        print("AI:", end=" ", flush=True)
+        print("AI:", end="", flush=True)
         for word in generate_text_stream(user_input, max_tokens):
-            print(word, end=" ", flush=True)
+            print(word, end="", flush=True)
         print("\n")
