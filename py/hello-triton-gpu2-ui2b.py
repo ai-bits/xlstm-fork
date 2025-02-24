@@ -13,39 +13,48 @@ except Exception as e:
     exit(1)
 # --- End monkey-patching ---
 
-from omegaconf import OmegaConf
 import os
+import yaml
 import torch
 import gc
-import importlib
+import inspect
 from safetensors.torch import load_file
 from pprint import pprint
 
 model_directory = "/home/gy/dl/xLSTM-7b"
-config_path = os.path.join(model_directory, "config.yaml")
+config_yaml_path = os.path.join(model_directory, "config.yaml")
+
+# Load configuration from config.yaml.
 try:
-    config = OmegaConf.load(config_path)
-    # Convert OmegaConf object to plain Python dict (with all values resolved)
-    config = OmegaConf.to_container(config, resolve=True)
+    with open(config_yaml_path, "r") as f:
+        config = yaml.safe_load(f)
 except Exception as e:
-    print(f"Error loading config: {e}")
+    print(f"Error loading config.yaml: {e}")
     exit(1)
 
+# Automatically filter the config to only include keys accepted by xLSTMLargeConfig.
+def filter_config(config_dict, cls):
+    valid_keys = set(inspect.signature(cls.__init__).parameters.keys()) - {"self"}
+    return {k: v for k, v in config_dict.items() if k in valid_keys}
+
 def load_model_and_tokenizer():
-    # Delay importing model classes to avoid circular import issues.
+    # Delay importing model classes to avoid circular dependency issues.
     try:
         from xlstm.xlstm_large.model import xLSTMLargeConfig, xLSTMLarge
     except Exception as e:
         print(f"Error importing model classes: {e}")
         exit(1)
     
+    # Filter the configuration dictionary.
+    filtered_config = filter_config(config, xLSTMLargeConfig)
+    
     try:
-        xlstm_config = xLSTMLargeConfig(**config)
+        xlstm_config = xLSTMLargeConfig(**filtered_config)
     except Exception as e:
         print(f"Error instantiating xLSTMLargeConfig: {e}")
         exit(1)
     
-    # For Triton, set weight_mode to "fused".
+    # For Triton kernels, set weight_mode to "fused".
     xlstm_config.weight_mode = "fused"
     
     # Load checkpoint weights.
@@ -104,7 +113,7 @@ def generate_text_stream(prompt, model, tokenizer, max_tokens=1000, max_context=
         tokenizer: The tokenizer.
         max_tokens (int): Maximum number of tokens to generate.
         max_context (int): Maximum number of tokens used as context.
-        
+    
     Yields:
         str: The next complete word (with trailing space) when available.
     """
