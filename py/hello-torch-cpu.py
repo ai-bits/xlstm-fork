@@ -1,10 +1,12 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer, AutoConfig
 import torch
-import time
+import time, os
 
 # Specify the local directory where the model files are stored
-model_directory = "/home/gy/dl/xLSTM-7b" #"NX-AI/xLSTM-7b" #HF Hub path
-#model_directory = "C:\\dl\\xLSTM-7b" #"NX-AI/xLSTM-7b" #HF Hub path
+if os.name == 'nt':  # Windows
+    model_directory = "C:\\dl\\xLSTM-7b"
+else:  # Linux/Unix
+    model_directory = "/home/gy/dl/xLSTM-7b"  # "NX-AI/xLSTM-7b" #HF Hub path
 
 # Set the device to cpu
 device = torch.device("cpu")
