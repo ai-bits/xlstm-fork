@@ -32,7 +32,7 @@ print(f"Tokenization time: {tokenization_time:.2f} seconds")
 
 # Measure time for generation
 start_time = time.time()
-out = xlstm.generate(tokens, max_new_tokens=2000)
+out = xlstm.generate(tokens, max_new_tokens=500)
 
 # Decode and print the output
 print(tokenizer.decode(out[0]))
