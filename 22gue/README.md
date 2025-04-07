@@ -1,0 +1,2 @@
+Files put here for debugging in the (almost) origin repo (except 2 lines in model.py)
+May use the exact original repo later, cuz the changes in model.py don't propagate to the Python env anyway and must be done manually, as `pip install -e .` does not work as expected.
